@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>Un pedacito de mi corazón 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --rosa: #ed789f;
+  --rosa-fuerte: #d95183;
+  --rosa-claro: #fff0f5;
+  --rosa-medio: #fbd9e5;
+  --texto: #704257;
+  --blanco: #fffafc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--rosa-claro);
+  color: var(--texto);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,250,252,.91);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #f6d8e3;
+}
+
+.nav-inner {
+  max-width: 1050px;
+  margin: auto;
+  min-height: 65px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.logo {
+  color: var(--rosa-fuerte);
+  font-family: 'Great Vibes', cursive;
+  font-size: 27px;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 17px;
+  font-size: 12px;
+}
+
+.nav-links a:hover {
+  color: var(--rosa-fuerte);
+}
+
+.music-btn {
+  border: none;
+  border-radius: 50px;
+  padding: 10px 13px;
+  background: #f9dce7;
+  color: var(--rosa-fuerte);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero {
+  min-height: 86vh;
+  padding: 85px 22px 90px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 10% 90%, #f7c6d9 0, transparent 35%),
+    radial-gradient(ellipse at 90% 20%, #f6d2e7 0, transparent 35%),
+    linear-gradient(145deg, #fff6f9, #ffe5ee 55%, #fff4f7);
+}
+
+.hero-content {
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid #f2bfd1;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 23px;
+  background: rgba(255,255,255,.48);
+}
+
+.hero h1 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  color: var(--rosa-fuerte);
+  font-size: clamp(54px, 9vw, 100px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.hero p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 3vw, 22px);
+  line-height: 1.9;
+  max-width: 540px;
+  margin: auto;
+}
+
+.heart-divider {
+  font-size: 26px;
+  color: var(--rosa);
+  margin: 22px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  background: var(--rosa);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px #df719328;
+  transition: transform .25s, background .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--rosa-fuerte);
+}
+
+.hero .btn {
+  margin-top: 28px;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  opacity: .65;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: .65; }
+  100% { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+section {
+  padding: 85px 22px;
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading .small-title {
+  color: var(--rosa-fuerte);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 45px);
+  font-weight: 500;
+  margin: 12px 0;
+}
+
+.section-heading p {
+  line-height: 1.8;
+  max-width: 550px;
+  margin: auto;
+  color: #936b7d;
+}
+
+.memories {
+  background: var(--blanco);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.photo-card {
+  padding: 12px 12px 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 8px 30px #9c527414;
+  transform: rotate(-1deg);
+  transition: transform .3s;
+}
+
+.photo-card:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.photo-card:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.photo-card:hover {
+  transform: translateY(-6px) rotate(0);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+  object-fit: cover;
+  background: #fbe3ec;
+  border-radius: 3px;
+}
+
+.photo-caption {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  padding-top: 16px;
+  line-height: 1.6;
+}
+
+.missing {
+  background: linear-gradient(140deg, #ffe7ef, #fbd4e3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  text-align: center;
+  color: #bd5e83;
+  font-size: 13px;
+}
+
+.missing span {
+  font-size: 34px;
+}
+
+.note {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #936b7d;
+}
+
+.miss-section {
+  background: linear-gradient(180deg, #fff0f5, #fce2ec);
+}
+
+.miss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.miss-card {
+  background: #ffffffb8;
+  border: 1px solid #f5d1df;
+  border-radius: 18px;
+  padding: 25px 18px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.miss-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #d9518316;
+}
+
+.miss-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.miss-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.miss-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #906779;
+}
+
+.letter-section {
+  background: var(--blanco);
+}
+
+.letter {
+  position: relative;
+  max-width: 720px;
+  margin: auto;
+  padding: clamp(27px, 6vw, 55px);
+  background: #fff8f0;
+  border: 1px solid #f3dfd3;
+  box-shadow: 0 12px 40px #a45d6412;
+  border-radius: 4px 18px 4px 18px;
+}
+
+.letter::before {
+  content: "♡";
+  position: absolute;
+  right: 22px;
+  top: 8px;
+  font-size: 34px;
+  color: #e9a0b6;
+}
+
+.letter h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 43px;
+  font-weight: 400;
+  color: var(--rosa-fuerte);
+  margin-bottom: 25px;
+}
+
+.letter p {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 19px;
+  white-space: pre-line;
+}
+
+.signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 35px;
+  color: var(--rosa-fuerte);
+  text-align: right;
+  margin-top: 25px;
+}
+
+.surprise-section {
+  background: linear-gradient(150deg, #fbe1eb, #fff0f5, #f9dce8);
+  text-align: center;
+}
+
+.gift-heart {
+  font-size: 85px;
+  cursor: pointer;
+  display: inline-block;
+  filter: drop-shadow(0 10px 15px #d951832b);
+  animation: heartbeat 1.5s infinite;
+  border: none;
+  background: none;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.12); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.08); }
+}
+
+.surprise-text {
+  max-width: 600px;
+  margin: 25px auto 0;
+  line-height: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.reveal {
+  max-width: 620px;
+  margin: 25px auto 0;
+  padding: 25px;
+  background: #ffffffbb;
+  border: 1px solid #f2c9d9;
+  border-radius: 18px;
+  line-height: 2;
+  animation: revealIn .7s ease both;
+}
+
+@keyframes revealIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  text-align: center;
+  padding: 38px 20px;
+  background: #fffafc;
+  line-height: 2;
+  font-size: 13px;
+  color: #a0788a;
+}
+
+footer strong {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--rosa-fuerte);
+}
+
+@media (max-width: 700px) {
+  .nav-inner {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 13px;
+    font-size: 11px;
+  }
+
+  .logo { font-size: 24px; }
+  .music-btn { font-size: 12px; padding: 9px 12px; }
+
+  .hero {
+    min-height: 80vh;
+    padding: 65px 20px;
+  }
+
+  section { padding: 65px 17px; }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .miss-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .photo-card { padding: 8px 8px 14px; }
+  .photo-caption { font-size: 13px; }
+  .miss-card { padding: 20px 12px; }
+}
+
+@media (max-width: 380px) {
+  .photo-grid, .miss-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero h1 { font-size: 53px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Música opcional: coloca tu archivo en musica/cancion.mp3 -->
+<audio id="musica" loop preload="none">
+  <source src="music\Natalia Lafourcade - Mi Lugar Favorito (Official Lyric Video).mp3" type="audio/mpeg">
+</audio>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="logo">Para mi niña ♡</a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#recuerdos">Recuerdos</a>
+      <a href="#extrano">Te extraño</a>
+      <a href="#carta">Mi carta</a>
+      <a href="#sorpresa">Para ti</a>
+    </nav>
+
+    <button class="music-btn" id="musicBtn" type="button">
+      ♫ Nuestra canción
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">♡ Hecho con todo mi amor ♡</div>
+
+      <h1>Hola, mi amor</h1>
+
+      <p>
+        Si pudiera pedir un deseo en este momento,
+        sería tenerte aquí conmigo, abrazarte fuerte
+        y decirte al oído todo lo que mi corazón
+        siente por ti.
+      </p>
+
+      <div class="heart-divider">♡ ✿ ♡</div>
+
+      <p>
+        Como hoy no puedo estar a tu lado,
+        hice este pequeño rincón de mi mundo
+        para recordarte lo muchísimo que te amo.
+      </p>
+
+      <a href="#carta" class="btn">Tengo algo para ti 💌</a>
+    </div>
+  </section>
+
+  <!-- FOTOGRAFÍAS -->
+  <section class="memories" id="recuerdos">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div class="small-title">Nuestros pequeños tesoros</div>
+        <h2>Nuestros recuerdos ♡</h2>
+        <p>
+          Hay momentos que quisiera guardar para siempre.
+          Muchos de mis favoritos tienen algo en común:
+          tú estabas conmigo.
+        </p>
+      </div>
+
+      <div class="photo-grid">
+        <article class="photo-card">
+          <img src="photos\p2.jpeg"
+               alt="Un recuerdo de nosotros"
+               onerror="this.hidden=true;this.nextElementSibling.classList.remove('hidden')">
+          <div class="missing hidden">
+            <span>📷</span>
+            Agrega nuestra primera foto
+          </div>
+          <p class="photo-caption">Uno de mis días favoritos contigo ♡</p>
+        </article>
+
+        <article class="photo-card">
+          <img src="photos\p1.jpeg"
+               alt="Un momento especial juntos"
+               onerror="this.hidden=true;this.nextElementSibling.classList.remove('hidden')">
+          <div class="missing hidden">
+            <span>🌷</span>
+            Aquí va otro recuerdo bonito
+          </div>
+          <p class="photo-caption">Tu sonrisa hace bonito cualquier lugar.</p>
+        </article>
+
+        <article class="photo-card">
+          <img src="photos\p3.jpeg"
+               alt="Una fotografía especial de nuestra relación"
+               onerror="this.hidden=true;this.nextElementSibling.classList.remove('hidden')">
+          <div class="missing hidden">
+            <span>💗</span>
+            Un instante que quiero conservar
+          </div>
+          <p class="photo-caption">Y todavía nos faltan tantos momentos.</p>
+        </article>
+      </div>
+
+      <p class="note">
+        Nuestro álbum apenas comienza. Quiero seguir llenándolo
+        contigo de recuerdos, aventuras y abrazos. ♡
+      </p>
+    </div>
+  </section>
+
+  <!-- LO QUE EXTRAÑO -->
+  <section class="miss-section" id="extrano">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div class="small-title">Aunque hoy estemos lejos</div>
+        <h2>Lo que más extraño de ti</h2>
+        <p>
+          Extrañarte es descubrir que hasta las cosas más pequeñas
+          se vuelven enormes cuando no puedo compartirlas contigo.
+        </p>
+      </div>
+
+      <div class="miss-grid">
+        <article class="miss-card">
+          <div class="miss-icon">😊</div>
+          <h3>Tu sonrisa</h3>
+          <p>
+            Porque tienes esa forma tan tuya de iluminarme
+            el día sin siquiera intentarlo.
+          </p>
+        </article>
+
+        <article class="miss-card">
+          <div class="miss-icon">🫂</div>
+          <h3>Tus abrazos</h3>
+          <p>
+            Ese lugar en el que todo parece estar bien
+            y donde quisiera quedarme un ratito más.
+          </p>
+        </article>
+
+        <article class="miss-card">
+          <div class="miss-icon">💌</div>
+          <h3>Tu voz</h3>
+          <p>
+            Escucharte, contarte mi día y hablar de cualquier
+            tontería contigo se ha vuelto de mis cosas favoritas.
+          </p>
+        </article>
+
+        <article class="miss-card">
+          <div class="miss-icon">🌷</div>
+          <h3>Tus detalles</h3>
+          <p>
+            Esas pequeñas cosas que haces y que quizá
+            no imaginas cuánto significan para mí.
+          </p>
+        </article>
+
+        <article class="miss-card">
+          <div class="miss-icon">✨</div>
+          <h3>Estar contigo</h3>
+          <p>
+            No necesito hacer algo extraordinario.
+            Hasta un día sencillo es especial a tu lado.
+          </p>
+        </article>
+
+        <article class="miss-card">
+          <div class="miss-icon">💗</div>
+          <h3>Todo de ti</h3>
+          <p>
+            Tu manera de ser, tus ocurrencias, tus gestos
+            y esa felicidad tan bonita que traes a mi vida.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="letter-section" id="carta">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div class="small-title">Unas palabras desde mi corazón</div>
+        <h2>Una carta para ti 💌</h2>
+        <p>
+          Hay sentimientos que quisiera poder explicarte
+          mejor cada vez que te tengo enfrente.
+        </p>
+      </div>
+
+      <article class="letter">
+        <h3>Mi amor bonito...</h3>
+
+        <p>Quiero que sepas algo: te extraño muchísimo.</p>
+
+        <p>
+          Hay días en los que quisiera detener todo,
+          ir a buscarte y darte uno de esos abrazos en los
+          que no hace falta decir nada, porque el corazón
+          ya está diciendo todo.
+        </p>
+
+        <p>
+          Extraño verte, escuchar tu voz, mirarte a los ojos
+          y disfrutar esos pequeños momentos que contigo
+          se vuelven tan especiales. A veces quisiera poder
+          cruzar la distancia en un segundo, solamente para
+          recordarte lo importante que eres para mí.
+        </p>
+
+        <p>
+          No sé si siempre encuentro las palabras correctas
+          para decirte cuánto te amo, pero quiero que nunca
+          dudes de lo mucho que significas en mi vida.
+          Me haces feliz de maneras que quizá ni siquiera
+          alcanzo a explicarte.
+        </p>
+
+        <p>
+          No quiero que esta distancia sea lo que recuerdes
+          de nosotros. Quiero que recuerdes las risas,
+          los momentos bonitos, las cosas que hemos vivido
+          y todo lo que todavía podemos construir.
+        </p>
+
+        <p>
+          Si hoy pudiera pedirte algo, sería que cuando
+          me extrañes recuerdes que aquí hay alguien que
+          piensa en ti, que sonríe al recordarte y que
+          espera con muchísimas ganas volver a tenerte
+          cerquita.
+        </p>
+
+        <p>
+          Gracias por existir, por ser tú y por formar
+          parte de mi vida. Si pudiera elegir de nuevo
+          a esa persona con quien quiero compartir tantos
+          momentos bonitos, me encantaría seguir eligiéndote.
+        </p>
+
+        <p>
+          Hasta que pueda abrazarte otra vez, te mando
+          todos los besos que me estoy guardando para ti.
+          Y cuando por fin nos veamos, prepárate para
+          uno de esos abrazos que parecen no querer terminar.
+        </p>
+
+        <div class="signature">
+          Con todo mi corazón, tu persona favorita ♡
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SORPRESA FINAL -->
+  <section class="surprise-section" id="sorpresa">
+    <div class="section-inner">
+      <div class="section-heading">
+        <div class="small-title">Antes de que te vayas...</div>
+        <h2>Te guardé una última cosita</h2>
+        <p>
+          Hay algo que quiero que recuerdes incluso
+          cuando cierres esta página.
+        </p>
+      </div>
+
+      <button class="gift-heart" id="giftBtn"
+              aria-label="Abrir mi sorpresa de amor"
+              type="button">💗</button>
+
+      <p class="note">Toca el corazón, mi amor ♡</p>
+
+      <div id="reveal" class="reveal hidden" aria-live="polite">
+        <h3 style="font-family:'Great Vibes',cursive;
+                   font-size:38px;color:#d95183;margin-bottom:15px">
+          Te amo, mi niña
+        </h3>
+
+        <p class="surprise-text">
+        “Te dejo un “Te Extraño", uno que no pese, uno que te cobije 
+        y te recuerde que pienso en ti. Uno que no se compara en nada 
+        con el abrazo que traigo atorado en los brazos, o lo besos que 
+        se andan muriendo por ti. Pero es un “Te Extraño" lleno de 
+        mucha sinceridad, en esta noche fría, donde la brisa me llena 
+        y me vacía de ti. Te dejo un “Te extraño" que tal vez no sirva
+         de mucho, pero ojala te consuele el alma.”
+        </p>
+
+        <p class="surprise-text">
+          Ojalá pronto pueda mirarte, tomar tu mano,
+          abrazarte muy fuerte y decirte en persona
+          lo que hoy te escribo aquí:
+          <strong>te amo, te extraño y me hace muy feliz
+          tenerte en mi vida.</strong>
+        </p>
+
+        <div style="font-size:34px;margin-top:20px">
+          🌷 💗 🌷
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Hecho para ti, con amor infinito ♡</strong>
+  Una página pequeñita para un amor inmenso.
+  <p>Siempre hay un lugar para ti en mi corazón. 💗</p>
+</footer>
+
+<script>
+const music = document.getElementById('musica');
+const musicBtn = document.getElementById('musicBtn');
+const giftBtn = document.getElementById('giftBtn');
+const reveal = document.getElementById('reveal');
+
+// Música: comienza solamente cuando ella toca el botón.
+musicBtn.addEventListener('click', async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicBtn.textContent = '♫ Pausar canción';
+    } catch (error) {
+      musicBtn.textContent = 'No se pudo reproducir ♡';
+    }
+  } else {
+    music.pause();
+    musicBtn.textContent = '♫ Nuestra canción';
+  }
+});
+
+// Sorpresa final: abrir y cerrar el mensaje.
+giftBtn.addEventListener('click', () => {
+  const isHidden = reveal.classList.contains('hidden');
+
+  reveal.classList.toggle('hidden');
+  giftBtn.textContent = isHidden ? '💖' : '💗';
+  giftBtn.setAttribute(
+    'aria-label',
+    isHidden ? 'Cerrar mensaje de amor' : 'Abrir mi sorpresa de amor'
+  );
+
+  if (isHidden) {
+    setTimeout(() => {
+      reveal.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }, 100);
+
+    burstHearts();
+  }
+});
+
+// Corazones flotantes decorativos.
+function createHeart() {
+  const heart = document.createElement('span');
+  heart.className = 'floating-heart';
+
+  const symbols = ['♡', '♥', '💕', '🌸'];
+  heart.textContent = symbols[
+    Math.floor(Math.random() * symbols.length)
+  ];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (14 + Math.random() * 18) + 'px';
+  heart.style.animationDuration = (7 + Math.random() * 6) + 's';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 14000);
+}
+
+setInterval(createHeart, 900);
+
+// Pequeña lluvia de corazones al abrir la sorpresa.
+function burstHearts() {
+  for (let i = 0; i < 18; i++) {
+    setTimeout(createHeart, i * 100);
+  }
+}
+</script>
+
+</body>
+</html>
